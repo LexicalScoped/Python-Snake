@@ -11,12 +11,14 @@ colors = {
     "white": (255, 255, 255),
     "black": (0, 0, 0),
     "red": (255, 0, 0),
-    "green": (0, 255, 0),
+    "forest_green": (34, 139, 34),
     "blue": (0, 0, 255),
-    "yellow": (255, 255, 0),
     "purple": (128, 0, 128),
     "light_blue": (173,216, 230),
+    "orange": (255, 165, 0),
 }
+
+color_names = [ "red", "forest_green", "blue", "orange" ]
 
 directions = {
     "none": (0, 0),
@@ -63,10 +65,11 @@ class snake():
 class food():
     x = int(round(random.randrange(0, window_width - block_size) / 10.0) * 10.0)
     y = int(round(random.randrange(0, window_height - block_size) / 10.0) * 10.0)
-    color = colors["red"]
+    color = colors[random.choice(color_names)]
     def new_location(self):
         self.x = int(round(random.randrange(0, window_width - block_size) / 10.0) * 10.0)
         self.y = int(round(random.randrange(0, window_height - block_size) / 10.0) * 10.0)
+        self.color = colors[random.choice(color_names)]
 
 
 class Game():
